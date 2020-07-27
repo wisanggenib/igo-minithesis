@@ -29,7 +29,7 @@
                                             <!-- <span class="inbox-num">3</span> -->
                                         </li>
                                         <li>
-                                            <a href="#">
+                                            <a href="produk.php">
                                                 <i class="fas fa-shopping-basket"></i>Produk</a>
                                         </li>
                                         <li class="has-sub">
