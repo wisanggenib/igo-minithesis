@@ -41,10 +41,10 @@
                                             </a>
                                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                                 <li>
-                                                    <a href="table.html">Pesanan</a>
+                                                    <a href="pesanan.php">Pesanan</a>
                                                 </li>
                                                 <li>
-                                                    <a href="form.html">Pembayaran</a>
+                                                    <a href="pembayaran.php">Pembayaran</a>
                                                 </li>
                                             </ul>
                                         </li>
