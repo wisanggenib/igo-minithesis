@@ -23,19 +23,29 @@
                                                     <tr>
                                                         <th>Images</th>
                                                         <th>Nama</th>
+                                                        <th>Harga</th>
                                                         <th>Deskripsi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                    <tr onclick="document.location='produk_detail.php'">
+                                                <?php
+                                                include "../lib/koneksi.php";
+                                                $kueriproduk= mysqli_query($host, "SELECT * from produk");
+                                                while($val=mysqli_fetch_array($kueriproduk, MYSQLI_ASSOC)){
+                                                ?>
+                                                    <tr onclick="document.location='produk_detail.php?id_produk=<?=$val['id_produk']?>'">
                                                         <td>
                                                             <div class="image">
-                                                                <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                                                <img src="../images/produk/<?=$val['gambar']?>" alt="Gambar Produk" width="150px" />
                                                             </div>
                                                         </td>
-                                                        <td>Lorem ipsum dolor sit amet consectetur adipisicing elit.</td>
-                                                        <td> Officiis natus perspiciatis ullam! Unde, repellat quasi nemo corrupti reprehenderit excepturi accusamus voluptates commodi possimus! Voluptatibus, explicabo illum. Quidem iusto in modi?</td>
+                                                        <td><?=$val['gambar']?></td>
+                                                        <td><?=$val['harga_produk']?></td>
+                                                        <td><?=$val['deskripsi_produk']?></td>
                                                     </tr>
+                                                <?php
+                                                }
+                                                ?>
                                                 </tbody>
                                             </table>
                                         </div>
@@ -51,19 +61,23 @@
                                                     <h4 class="text-center">Upload Produk</h4>
                                                 </div>
                                                 <hr>
-                                                <form action="" method="post" novalidate="novalidate">
+                                                <form action="pages/produk/action_save.php" method="post" novalidate="novalidate" enctype="multipart/form-data">
                                                     <div class="form-group">
                                                         <label for="cc-payment" class="control-label mb-1">Nama</label>
-                                                        <input id="cc-pament" name="cc-payment" type="text" class="form-control" aria-required="true" aria-invalid="false">
+                                                        <input id="cc-pament" name="namaProduk" type="text" class="form-control" aria-required="true" aria-invalid="false">
                                                     </div>
                                                     <div class="form-group has-success">
                                                         <label for="cc-name" class="control-label mb-1">Harga</label>
-                                                        <input id="cc-name" name="cc-name" type="text" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error">
+                                                        <input id="cc-name" name="hargaProduk" type="number" class="form-control cc-name valid" data-val="true" data-val-required="Please enter the name on card" autocomplete="cc-name" aria-required="true" aria-invalid="false" aria-describedby="cc-name-error">
                                                         <span class="help-block field-validation-valid" data-valmsg-for="cc-name" data-valmsg-replace="true"></span>
                                                     </div>
                                                     <div class="form-group">
+                                                        <label for="cc-payment" class="control-label mb-1">Deskripsi</label>
+                                                        <input id="cc-pament" name="deskripsiProduk" type="text" class="form-control" aria-required="true" aria-invalid="false">
+                                                    </div>
+                                                    <div class="form-group">
                                                         <label for="cc-number" class="control-label mb-1">Images</label>
-                                                        <input id="cc-number" name="cc-number" type="file" class="form-control cc-number identified visa" value="" data-val="true" data-val-required="Please enter the card number" data-val-cc-number="Please enter a valid card number" autocomplete="cc-number">
+                                                        <input id="cc-number" name="gambar" type="file" class="form-control cc-number identified visa">
                                                     </div>
                                                     <div>
                                                         <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">

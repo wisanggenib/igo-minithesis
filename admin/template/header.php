@@ -35,6 +35,15 @@
 
 </head>
 
+<?php
+session_start();
+    if(empty($_SESSION['username'])){
+        header('location:login.php');
+    }else{
+        echo "";
+    }
+?>
+
 <body class="animsition">
     <div class="page-wrapper">
         <!-- HEADER DESKTOP-->
@@ -84,7 +93,7 @@
                                         </div>
                                     </div>
                                     <div class="account-dropdown__footer">
-                                        <a href="#">
+                                        <a href="logout.php">
                                             <i class="zmdi zmdi-power"></i>Logout</a>
                                     </div>
                                 </div>
