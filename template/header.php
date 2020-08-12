@@ -41,8 +41,8 @@ session_start();
 
       <div class="collapse navbar-collapse" id="ftco-nav">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active"><a href="index.php" class="nav-link">Home</a></li>
-          <li class="nav-item active"><a href="catalog.php" class="nav-link">Catalog</a></li>
+          <li class="nav-item"><a href="index.php" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="catalog.php" class="nav-link">Catalog</a></li>
           <li class="nav-item"><a href="about.php" class="nav-link">About</a></li>
           <?php
           if (empty($_SESSION['username'])) {
@@ -51,8 +51,20 @@ session_start();
           <?php
           } else {
           ?>
-            <li class="nav-item cta cta-colored"><a href="cart.php" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
-            <li class="nav-item"><a href="login/logout.php" class="nav-link">Log Out From <?=$_SESSION['username']?></a></li>
+            <li class="nav-item"><a href="cart.php" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+            <!-- <li class="nav-item"><a href="login/logout.php" class="nav-link">Log Out From </a></li> -->
+            <li class="dropdown nav-item">
+              <div class="dropdown-toggle nav-link" data-toggle="dropdown">
+                <?=$_SESSION['username']?>
+              </div>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="google.com">profile</a>
+                <a class="dropdown-item" href="#">Link 2</a>
+                <a class="dropdown-item" href="login/logout.php">Logout</a>
+              </div>
+          </li>
+
+
           <?php
           }
           ?>
