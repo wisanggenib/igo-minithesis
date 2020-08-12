@@ -99,7 +99,7 @@
 				?>
     			<div class="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">
     				<div class="product d-flex flex-column">
-    					<a href="detail-catalog.php" class="img-prod"><img class="img-fluid" src="images/produk/<?=$val['gambar']?>" alt="Colorlib Template">
+    					<a href="detail-catalog.php?id_produk=<?=$val['id_produk']?>" class="img-prod"><img class="img-fluid" src="images/produk/<?=$val['gambar']?>" alt="Colorlib Template">
     						<div class="overlay"></div>
     					</a>
     					<div class="text py-3 pb-4 px-3">
