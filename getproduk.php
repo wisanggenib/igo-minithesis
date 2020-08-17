@@ -1,5 +1,5 @@
 <?php
-$con = mysqli_connect('localhost','root','','db_sunsunye');
+$con = mysqli_connect('localhost','root','','db_sunsunyefix');
 if (!$con) {
     die('Could not connect: ' . mysqli_error($con));
 }
