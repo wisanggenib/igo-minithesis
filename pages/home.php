@@ -108,7 +108,7 @@
 	    						<p class="price"><span>Rp. <?=$val['harga_produk']?></span></p>
 	    					</div>
 	    					<p class="bottom-area d-flex px-3">
-    							<a href="cart.php" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+    							<a href="detail-catalog.php?id_produk=<?=$val['id_produk']?>" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
     						</p>
     					</div>
     				</div>

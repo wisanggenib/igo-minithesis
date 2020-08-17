@@ -56,14 +56,14 @@ include 'lib/koneksi.php';
             <!-- <li class="nav-item"><a href="login/logout.php" class="nav-link">Log Out From </a></li> -->
             <li class="dropdown nav-item">
               <div class="dropdown-toggle nav-link" data-toggle="dropdown">
-                <?=$_SESSION['username']?>
+                <?= $_SESSION['username'] ?>
               </div>
               <div class="dropdown-menu">
                 <a class="dropdown-item" href="google.com">profile</a>
                 <a class="dropdown-item" href="#">Link 2</a>
                 <a class="dropdown-item" href="login/logout.php">Logout</a>
               </div>
-          </li>
+            </li>
 
 
           <?php
