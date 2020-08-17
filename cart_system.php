@@ -31,4 +31,5 @@
 
     //check array
     print_r($_SESSION["cart"]);
+    header('location:cart.php');
 ?>
