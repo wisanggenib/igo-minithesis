@@ -22,7 +22,7 @@ if (!ctype_alnum ($username) OR !ctype_alnum($pass)) {
 		session_start();
 		
 		$_SESSION['username'] = $r['username'];
-		$_SESSION['id'] = $r['id_admin'];
+		$_SESSION['id'] = $r['id_pelanggan'];
         
 		header('location:../index.php');
 		

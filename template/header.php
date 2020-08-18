@@ -52,7 +52,7 @@ include 'lib/koneksi.php';
           <?php
           } else {
           ?>
-            <li class="nav-item"><a href="cart.php" class="nav-link"><span class="icon-shopping_cart"></span>[0]</a></li>
+            <li class="nav-item"><a href="cart.php" class="nav-link">Cart</span></a></li>
             <!-- <li class="nav-item"><a href="login/logout.php" class="nav-link">Log Out From </a></li> -->
             <li class="dropdown nav-item">
               <div class="dropdown-toggle nav-link" data-toggle="dropdown">
