@@ -59,7 +59,7 @@ include 'lib/koneksi.php';
                 <?= $_SESSION['username'] ?>
               </div>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="google.com">profile</a>
+                <a class="dropdown-item" href="dashboard.php">profile</a>
                 <a class="dropdown-item" href="#">Link 2</a>
                 <a class="dropdown-item" href="login/logout.php">Logout</a>
               </div>

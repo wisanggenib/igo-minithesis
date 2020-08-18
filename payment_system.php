@@ -10,7 +10,7 @@
     $id_pelanggan = $_SESSION['id'];
     $tgl_pesan = date("Y-m-d");
 // query untuk menyimpan ke tabel
-    $querySimpan = mysqli_query($host, "INSERT INTO transaksi (alamat, deskripsi, id_pelanggan,nama_penerima,status,tgl_kirim,tgl_pesan) VALUES ('$alamat', '$deskripsi', '$id_pelanggan','$nama_penerima','waiting','$tgl_kirim','$tgl_pesan')");
+    $querySimpan = mysqli_query($host, "INSERT INTO transaksi (alamat, deskripsi, id_pelanggan,nama_penerima,status,tgl_kirim,tgl_pesan) VALUES ('$alamat', '$deskripsi', '$id_pelanggan','$nama_penerima','pending','$tgl_kirim','$tgl_pesan')");
     
 // jika query berhasil maka akan tampil alert dan halaman akan kembali ke daftar layanan
     if ($querySimpan) {
