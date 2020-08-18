@@ -60,8 +60,8 @@
 						</div>
 
 						<div>
-							<a href="#" class="txt1">
-								Forgot Password?
+							<a href="register.php" class="txt1">
+								Register
 							</a>
 						</div>
 					</div>

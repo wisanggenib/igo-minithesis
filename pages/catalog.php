@@ -20,16 +20,16 @@
                         ?>
                             <div class="col-sm-12 col-md-12 col-lg-4 ftco-animate d-flex">
                                 <div class="product d-flex flex-column">
-                                    <a href="#" class="img-prod"><img class="img-fluid" src="images/produk/<?= $val['gambar'] ?>" alt="Colorlib Template">
+                                    <a href="detail-catalog.php?id_produk=<?=$val['id_produk']?>" class="img-prod"><img class="img-fluid" src="images/produk/<?= $val['gambar'] ?>" alt="Colorlib Template">
                                         <div class="overlay"></div>
                                     </a>
                                     <div class="text py-3 pb-4 px-3">
-                                        <h3><a href="#"><?= $val['nama_produk'] ?></a></h3>
+                                        <h3><a href="detail-catalog.php?id_produk=<?=$val['id_produk']?>"><?= $val['nama_produk'] ?></a></h3>
                                         <div class="pricing">
                                             <p class="price"><span>$<?= $val['harga_produk'] ?></span></p>
                                         </div>
                                         <p class="bottom-area d-flex px-3">
-                                            <a href="#" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
+                                            <a href="detail-catalog.php?id_produk=<?=$val['id_produk']?>" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
                                         </p>
                                     </div>
                                 </div>
