@@ -26,78 +26,60 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="text-center">
-                                <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
+                            <?php
+                            include 'lib/koneksi.php';
+                            $jumlah_bayar = 0;
+                            if(!empty($_SESSION["cart"])){
+                                
+                            foreach ($_SESSION["cart"] as $key => $item) {
+                                $kueriproduk = mysqli_query($host, "SELECT * from produk WHERE id_produk = '$item[id_produk]' ");
+                                $val = mysqli_fetch_array($kueriproduk, MYSQLI_ASSOC);
+                            ?>
+                                <tr class="text-center">
+                                    <td class="product-remove"><a href="del_cart.php?id_produk=<?=$item['id_produk']?>"><span class="ion-ios-close"></span></a></td>
 
-                                <td class="image-prod">
-                                    <div class="img" style="background-image:url(images/product-3.jpg);"></div>
-                                </td>
+                                    <td class="image-prod">
+                                        <div class="img" style="background-image:url(images/produk/<?= $val['gambar'] ?>);"></div>
+                                    </td>
 
-                                <td class="product-name">
-                                    <h3>Nike Free RN 2019 iD</h3>
-                                    <p>Far far away, behind the word mountains, far from the countries</p>
-                                </td>
+                                    <td class="product-name">
+                                        <h3><?= $val['nama_produk'] ?></h3>
+                                        <p><?= $val['deskripsi_produk'] ?></p>
+                                    </td>
 
-                                <td class="price">$4.90</td>
+                                    <td class="price"><?= $val['harga_produk'] ?></td>
 
-                                <td class="quantity">
-                                    <div class="input-group mb-3">
-                                        <input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-                                    </div>
-                                </td>
+                                    <td class="quantity">
+                                        <div class="input-group mb-3">
+                                            <input type="text" name="quantity" class="quantity form-control input-number" value="<?= $item['jumlah_produk'] ?>" min="1" max="100">
+                                        </div>
+                                    </td>
 
-                                <td class="total">$4.90</td>
-                            </tr><!-- END TR-->
+                                    <td class="total"><?= $total = $item['jumlah_produk'] * $val['harga_produk'] ?></td>
+                                </tr><!-- END TR-->
+                            <?php
+                            $jumlah_bayar = $jumlah_bayar + $total;
+                            }}else{
+                            echo"
+                            <tr class='text-center'>
+                                <td colspan='6'>Silahkan Berbelanja<br><a href='catalog.php'>Shop Now</a></td>
+                            </tr>
+                            ";
+                            }
+                            
+                            ?>
+                            <tr class="text-center" style="background-color: #DBCC8F;color:white;">
+                                <td colspan="5">Total</td>
 
-                            <tr class="text-center">
-                                <td class="product-remove"><a href="#"><span class="ion-ios-close"></span></a></td>
-
-                                <td class="image-prod">
-                                    <div class="img" style="background-image:url(images/product-4.jpg);"></div>
-                                </td>
-
-                                <td class="product-name">
-                                    <h3>Nike Free RN 2019 iD</h3>
-                                    <p>Far far away, behind the word mountains, far from the countries</p>
-                                </td>
-
-                                <td class="price">$15.70</td>
-
-                                <td class="quantity">
-                                    <div class="input-group mb-3">
-                                        <input type="text" name="quantity" class="quantity form-control input-number" value="1" min="1" max="100">
-                                    </div>
-                                </td>
-
-                                <td class="total">$15.70</td>
-                            </tr><!-- END TR-->
+                                <td class="total" style="color: white;"><?= $jumlah_bayar ?></td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
         <div class="row justify-content-start">
-            <div class="col col-lg-5 col-md-6 mt-5 cart-wrap ftco-animate">
-                <div class="cart-total mb-3">
-                    <h3>Cart Totals</h3>
-                    <p class="d-flex">
-                        <span>Subtotal</span>
-                        <span>$20.60</span>
-                    </p>
-                    <p class="d-flex">
-                        <span>Delivery</span>
-                        <span>$0.00</span>
-                    </p>
-                    <p class="d-flex">
-                        <span>Discount</span>
-                        <span>$3.00</span>
-                    </p>
-                    <hr>
-                    <p class="d-flex total-price">
-                        <span>Total</span>
-                        <span>$17.60</span>
-                    </p>
-                </div>
+            <div class="col col-lg-12 col-md-12 cart-wrap ftco-animate d-flex flex-row-reverse">
                 <p class="text-center"><a href="checkout.php" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
             </div>
         </div>
