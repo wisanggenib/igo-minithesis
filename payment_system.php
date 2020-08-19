@@ -27,5 +27,5 @@
         echo "<script> alert('Berhasil Memesan, Silahkan Melakukan Pembayaran'); window.location = 'index.php';</script>";
 // jika query gagal, akan tampil alert dan halaman akan diarahkan ke form tambah layanan
     } else {
-        echo "<script> alert('Gagal Memesan, silahkan ulangi lagi'); window.location = 'register.php';</script>";
+        echo "<script> alert('Gagal Memesan, silahkan ulangi lagi'); window.location = 'checkout.php';</script>";
     }

@@ -64,30 +64,30 @@ $val = mysqli_fetch_array($kueritransaksi, MYSQLI_ASSOC);
                         </thead>
                         <tbody>
                             <?php
-                            $kueriproduk = mysqli_query($host, "SELECT produk.id_produk,produk.nama_produk,produk.deskripsi_produk,detail_transaksi.harga_produk,detail_transaksi.qty from detail_transaksi JOIN transaksi ON detail_transaksi.id_transaksi = transaksi.id_transaksi JOIN produk ON detail_transaksi.id_produk = produk.id_produk WHERE detail_transaksi.id_transaksi = '$id_transaksi'");
-                            while ($val = mysqli_fetch_array($kueriproduk, MYSQLI_ASSOC)) {
+                            $kueriproduk = mysqli_query($host, "SELECT produk.id_produk,produk.gambar,produk.nama_produk,produk.deskripsi_produk,detail_transaksi.harga_produk,detail_transaksi.qty from detail_transaksi JOIN transaksi ON detail_transaksi.id_transaksi = transaksi.id_transaksi JOIN produk ON detail_transaksi.id_produk = produk.id_produk WHERE detail_transaksi.id_transaksi = '$id_transaksi'");
+                            while ($val2 = mysqli_fetch_array($kueriproduk, MYSQLI_ASSOC)) {
                             ?>
                                 <tr class="text-center">
-                                    <td class="product-remove"><a href="del_cart.php?id_produk=<?= $val['id_produk'] ?>"><span class="ion-ios-close"></span></a></td>
+                                    <td class="product-remove"><a href="del_cart.php?id_produk=<?= $val2['id_produk'] ?>"><span class="ion-ios-close"></span></a></td>
 
                                     <td class="image-prod">
-                                        <div class="img" style="background-image:url(images/produk/<?= $val['gambar'] ?>);"></div>
+                                        <div class="img" style="background-image:url(images/produk/<?= $val2['gambar'] ?>);"></div>
                                     </td>
 
                                     <td class="product-name">
-                                        <h3><?= $val['nama_produk'] ?></h3>
-                                        <p><?= $val['deskripsi_produk'] ?></p>
+                                        <h3><?= $val2['nama_produk'] ?></h3>
+                                        <p><?= $val2['deskripsi_produk'] ?></p>
                                     </td>
 
-                                    <td class="price"><?= $val['harga_produk'] ?></td>
+                                    <td class="price"><?= $val2['harga_produk'] ?></td>
 
                                     <td class="quantity">
                                         <div class="input-group mb-3">
-                                            <input type="text" name="quantity" class="quantity form-control input-number" value="<?= $val['qty'] ?>" min="1" max="100">
+                                            <input type="text" name="quantity" class="quantity form-control input-number" value="<?= $val2['qty'] ?>" min="1" max="100">
                                         </div>
                                     </td>
 
-                                    <td class="total"><?= $total = $val['qty'] * $val['harga_produk'];
+                                    <td class="total"><?= $total = $val2['qty'] * $val2['harga_produk'];
                                                         $jumlah_bayar = $jumlah_bayar + $total; ?></td>
                                 </tr><!-- END TR-->
                             <?php } ?>
@@ -127,20 +127,22 @@ $val = mysqli_fetch_array($kueritransaksi, MYSQLI_ASSOC);
                 <div class="col-md-4">
                     <div class="cart-detail bg-light p-3 p-md-4">
                         <form action="paid_system.php" method="POST" enctype="multipart/form-data">
-                            <h3 class="billing-heading mb-4">Upload Payment</h3>
-                            <div class="form-group">
-                                <div class="col-md-12">
-                                    <p>
-                                        Nama Pemilik Rekening Disini<br>
-                                        No Pemilik Rekening Disini
-                                    </p>
+                            <?php
+                            if ($val['status'] == 'pending' || $val['status'] == 'reupload') {
+                            ?>
+                                <h3 class="billing-heading mb-4">Upload Payment</h3>
+                                <div class="form-group">
+                                    <div class="col-md-12">
+                                        <input type="file" name="bukti_bayar" class="form-control" placeholder="" require>
+                                        <input type="text" name="id_transaksi" class="form-control" placeholder="" value="<?= $id_transaksi ?>" style="display: none;">
+                                        <button type="submit" class="btn btn-primary py-3 px-3"> Upload
+                                    </div>
+                                <?php
+                            } else {
+                                echo "";
+                            }
+                                ?>
                                 </div>
-                                <div class="col-md-12">
-                                    <input type="file" name="bukti_bayar" class="form-control" placeholder="">
-                                    <input type="text" name="id_transaksi" class="form-control" placeholder="" value="<?=$id_transaksi?>" style="display: none;">
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-primary py-3 px-3"> Upload
                         </form>
                     </div>
                 </div>
