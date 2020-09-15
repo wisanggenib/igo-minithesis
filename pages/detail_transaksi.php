@@ -104,10 +104,18 @@ $val = mysqli_fetch_array($kueritransaksi, MYSQLI_ASSOC);
                 <div class="col-md-4 d-flex">
                     <div class="cart-detail cart-total bg-light p-3 p-md-4">
                         <h3 class="billing-heading mb-4">Cart Total</h3>
-                        <hr>
                         <p class="d-flex total-price">
                             <span>Total</span>
                             <span>Rp. <?= $jumlah_bayar ?></span>
+                        </p>
+                        <p class="d-flex total-price">
+                            <span>Ongkir</span>
+                            <span>Rp. <?= $val['ongkir'] ?></span>
+                        </p>
+                        <hr>
+                        <p class="d-flex total-price">
+                            <span>Total Bayar</span>
+                            <span>Rp. <?= $jumlah_bayar+$val['ongkir'] ?></span>
                         </p>
                     </div>
                 </div>
