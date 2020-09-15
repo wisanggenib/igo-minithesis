@@ -111,8 +111,8 @@
                                     </div>
                                 </div>
                                 <?php
-                                if ($val['status'] == 'waiting' || $val['status'] == 'reupload') {
-                                    $kueribayar = mysqli_query($host, "SELECT transaksi.alamat,bayar.bukti_bayar FROM transaksi JOIN bayar ON transaksi.id_transaksi = bayar.id_transaksi WHERE transaksi.id_transaksi = '$id_transaksi'");
+                                if ($val['status'] == 'waiting') {
+                                    $kueribayar = mysqli_query($host, "SELECT transaksi.alamat,transaksi.ongkir,bayar.bukti_bayar FROM transaksi JOIN bayar ON transaksi.id_transaksi = bayar.id_transaksi WHERE transaksi.id_transaksi = '$id_transaksi'");
                                     $val2 = mysqli_fetch_array($kueribayar, MYSQLI_ASSOC);
                                 ?>
                                     <div class="row">
@@ -124,7 +124,7 @@
                                                         <h4 class="text-center">Bukti Transfer</h4>
                                                     </div>
                                                     <hr>
-                                                        <img src="../images/produk/<?=$val2['alamat'] ?>" alt="Gambar Produk" width="100px" />
+                                                    <img src="../images/bukti/<?= $val2['bukti_bayar'] ?>" alt="Gambar Produk" />
                                                 </div>
                                             </div>
                                         </div>
@@ -137,25 +137,43 @@
                                                     </div>
                                                     <hr>
                                                     <table>
-                                                        <tr><td>Jumlah Dibayar : <?=$jumlah?></td></tr>
-                                                        <tr><td>Alamat : <?=$val2['alamat']?></td></tr>
+                                                        <tr>
+                                                            <td>Alamat : <?= $val2['alamat'] ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Ongkir : <?= $val2['ongkir'] ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Total : <?= $jumlah ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>Jumlah Dibayar : <?= $jumlah + $val2['ongkir'] ?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td> <a href="pages/pesanan/aksi_terima.php?id_transaksi=<?=$id_transaksi?>"><button type="button" class="btn btn-primary">
+                                                                        Terima</button></a>
+                                                                        <a href="pages/pesanan/aksi_tolak.php?id_transaksi=<?=$id_transaksi?>"><button type="button" class="btn btn-danger">
+                                                                        Tolak</button></a></td>
+                                                        </tr>
                                                     </table>
+
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="copyright">
-                                                <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
                                             </div>
                                         </div>
                                     </div>
                                 <?php
                                 } else {
-                                    echo "nothing";
+                                    echo "<h3>Menunggu Pembayaran</h3><br><br><br><br><br><br>";
                                 }
                                 ?>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="copyright">
+                                            <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a href="https://colorlib.com">Colorlib</a>.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
                             </div>
                             <!-- END PAGE CONTENT-->
                         </div>
