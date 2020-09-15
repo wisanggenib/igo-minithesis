@@ -30,7 +30,7 @@
                                                 <tbody>
                                                 <?php
                                                 include "../lib/koneksi.php";
-                                                $kueriproduk= mysqli_query($host, "SELECT * from transaksi WHERE status != 'success' ORDER BY status DESC");
+                                                $kueriproduk= mysqli_query($host, "SELECT * from transaksi WHERE status != 'complete' ORDER BY status DESC");
                                                 while($val=mysqli_fetch_array($kueriproduk, MYSQLI_ASSOC)){
                                                 ?>
                                                     <tr onclick="document.location='pesanan_detail.php?id_transaksi=<?=$val['id_transaksi']?>'">
