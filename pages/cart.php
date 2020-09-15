@@ -80,7 +80,7 @@
         </div>
         <div class="row justify-content-start">
             <div class="col col-lg-12 col-md-12 cart-wrap ftco-animate d-flex flex-row-reverse">
-                <p class="text-center"><a href="checkout.php" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
+                <p class="text-center"><a href="checkout.php?jumlah_bayar=<?=$jumlah_bayar?>" class="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
             </div>
         </div>
     </div>

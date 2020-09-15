@@ -7,10 +7,11 @@
     $alamat = $_POST['alamat'];
     $deskripsi = $_POST['deskripsi'];
     $tgl_kirim = $_POST['tgl_kirim'];
+    $ongkir = $_POST['ongkir'];
     $id_pelanggan = $_SESSION['id'];
     $tgl_pesan = date("Y-m-d");
 // query untuk menyimpan ke tabel
-    $querySimpan = mysqli_query($host, "INSERT INTO transaksi (alamat, deskripsi, id_pelanggan,nama_penerima,status,tgl_kirim,tgl_pesan) VALUES ('$alamat', '$deskripsi', '$id_pelanggan','$nama_penerima','pending','$tgl_kirim','$tgl_pesan')");
+    $querySimpan = mysqli_query($host, "INSERT INTO transaksi (alamat, deskripsi, id_pelanggan,nama_penerima,status,tgl_kirim,tgl_pesan,ongkir) VALUES ('$alamat', '$deskripsi', '$id_pelanggan','$nama_penerima','pending','$tgl_kirim','$tgl_pesan','$ongkir')");
     
 // jika query berhasil maka akan tampil alert dan halaman akan kembali ke daftar layanan
     if ($querySimpan) {
