@@ -50,9 +50,7 @@
                                     <td class="price"><?= $val['harga_produk'] ?></td>
 
                                     <td class="quantity">
-                                        <div class="input-group mb-3">
-                                            <input type="text" name="quantity" class="quantity form-control input-number" value="<?= $item['jumlah_produk'] ?>" min="1" max="100">
-                                        </div>
+                                        <?= $item['jumlah_produk'] ?>
                                     </td>
 
                                     <td class="total"><?= $total = $item['jumlah_produk'] * $val['harga_produk'] ?></td>

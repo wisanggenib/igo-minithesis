@@ -24,7 +24,7 @@ if (empty($_SESSION['username'])) {
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="firstname">Full Name</label>
-                                <input type="text" class="form-control" placeholder="" name="namaPenerima">
+                                <input type="text" class="form-control" placeholder="" name="namaPenerima" required>
                             </div>
                         </div>
                         <?php
@@ -58,7 +58,7 @@ if (empty($_SESSION['username'])) {
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="streetaddress">Kabupaten</label>
-                                <select class="form-control" id="province" onchange="showProduk(this.value,<?=$jumlah_bayar?>);">
+                                <select class="form-control" id="province" onchange="showProduk(this.value,<?= $jumlah_bayar ?>);" required>
                                     <option>Pilih Kabupaten</option>
                                     <?php
                                     for ($i = 0; $i < count($data['rajaongkir']['results']); $i++) {
@@ -71,7 +71,7 @@ if (empty($_SESSION['username'])) {
                         <div class="col-md-6" id="here">
                             <div class="form-group">
                                 <label for="streetaddress">Kota</label>
-                                <select class="form-control">
+                                <select class="form-control" required>
                                     <option>Pilih Kabupaten Dulu</option>
                                 </select>
                             </div>
@@ -80,34 +80,34 @@ if (empty($_SESSION['username'])) {
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label for="firstname">Alamat</label>
-                                <input type="text" class="form-control" placeholder="" name="alamat">
+                                <input type="text" class="form-control" placeholder="" name="alamat" required>
                             </div>
                         </div>
                         <div class="w-100"></div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="phone">Description</label>
-                                <input type="Teks" class="form-control" name="deskripsi" placeholder="">
+                                <input type="Teks" class="form-control" name="deskripsi" placeholder="" required>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="emailaddress">Date</label>
-                                <input type="date" name="tgl_kirim" class="form-control" placeholder="">
+                                <input type="date" name="tgl_kirim" class="form-control" placeholder="" required>
                             </div>
                         </div>
-                       
+
                     </div>
                     <!-- END -->
                     <div class="row mt-5 pt-3 d-flex">
                         <div class="col-md-6 d-flex">
                             <div class="cart-detail cart-total bg-light p-3 p-md-4">
-                                    <h3 class="billing-heading mb-4">Cart Total</h3>
-                                    <p class="d-flex total-price">
-                                        <span>Jumlah Bayar</span>
-                                        <span id="jumlah_bayar"><?=$jumlah_bayar?></span>
-                                    </p>
-                                    <div id="ongkir">
+                                <h3 class="billing-heading mb-4">Cart Total</h3>
+                                <p class="d-flex total-price">
+                                    <span>Jumlah Bayar</span>
+                                    <span id="jumlah_bayar"><?= $jumlah_bayar ?></span>
+                                </p>
+                                <div id="ongkir">
                                     <p class="d-flex total-price">
                                         <span>Ongkir</span>
                                         <span>0</span>
@@ -115,9 +115,9 @@ if (empty($_SESSION['username'])) {
                                     <hr>
                                     <p class="d-flex total-price">
                                         <span>Total Bayar</span>
-                                        <span><?=$jumlah_bayar?></span>
+                                        <span><?= $jumlah_bayar ?></span>
                                     </p>
-                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -126,8 +126,8 @@ if (empty($_SESSION['username'])) {
                                 <div class="form-group">
                                     <div class="col-md-12">
                                         <p>
-                                            Nama Pemilik Rekening Disini<br>
-                                            No Pemilik Rekening Disini
+                                            A/N Asrofin Widhyantomo<br>
+                                            0240603980 BNI
                                         </p>
                                     </div>
                                 </div>
@@ -142,7 +142,7 @@ if (empty($_SESSION['username'])) {
 </section>
 
 <script>
-    function showProduk(str,str2) {
+    function showProduk(str, str2) {
         var xhttp;
         if (str == "") {
             document.getElementById("here").innerHTML = "";
@@ -154,11 +154,11 @@ if (empty($_SESSION['username'])) {
                 document.getElementById("here").innerHTML = this.responseText;
             }
         };
-        xhttp.open("GET", "getCity.php?q=" + str+"&w="+str2, true);
+        xhttp.open("GET", "getCity.php?q=" + str + "&w=" + str2, true);
         xhttp.send();
     }
 
-    function showPrice(str,str2) {
+    function showPrice(str, str2) {
         var xhttp;
         if (str == "") {
             document.getElementById("ongkir").innerHTML = "";
@@ -170,7 +170,7 @@ if (empty($_SESSION['username'])) {
                 document.getElementById("ongkir").innerHTML = this.responseText;
             }
         };
-        xhttp.open("GET", "getHarga.php?x=" + str+"&y="+str2, true);
+        xhttp.open("GET", "getHarga.php?x=" + str + "&y=" + str2, true);
         xhttp.send();
     }
 </script>

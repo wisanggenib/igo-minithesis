@@ -23,6 +23,8 @@
             $kueriproduk = mysqli_query($host, "SELECT * from produk WHERE id_produk = '$item[id_produk]' ");
             $val = mysqli_fetch_array($kueriproduk, MYSQLI_ASSOC);
             $querySimpanBarang = mysqli_query($host, "INSERT INTO detail_transaksi (id_transaksi, id_produk, harga_produk,qty) VALUES ('$val2[id_transaksi]', '$item[id_produk]', '$val[harga_produk]','$item[jumlah_produk]')");
+            $stok_baru = $val['stok']-$item['jumlah_produk'];
+            $queryUpdateStok = mysqli_query($host, "UPDATE produk SET stok='$stok_baru' WHERE id_produk = '$item[id_produk]' ");
         }
         $_SESSION['cart']=array();
         echo "<script> alert('Berhasil Memesan, Silahkan Melakukan Pembayaran'); window.location = 'index.php';</script>";

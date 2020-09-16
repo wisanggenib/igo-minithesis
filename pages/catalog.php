@@ -15,7 +15,7 @@
                 <div class="col-md-8 col-lg-10 order-md-last">
                     <div class="row" id="here">
                         <?php
-                        $kueriproduk = mysqli_query($host, "SELECT * from produk ORDER BY id_produk DESC");
+                        $kueriproduk = mysqli_query($host, "SELECT * from produk WHERE stok > 0 ORDER BY id_produk DESC");
                         while ($val = mysqli_fetch_array($kueriproduk, MYSQLI_ASSOC)) {
                         ?>
                             <div class="col-sm-12 col-md-12 col-lg-4 ftco-animate d-flex">
@@ -26,7 +26,7 @@
                                     <div class="text py-3 pb-4 px-3">
                                         <h3><a href="detail-catalog.php?id_produk=<?=$val['id_produk']?>"><?= $val['nama_produk'] ?></a></h3>
                                         <div class="pricing">
-                                            <p class="price"><span>$<?= $val['harga_produk'] ?></span></p>
+                                            <p class="price"><span>Rp.<?= $val['harga_produk'] ?></span></p>
                                         </div>
                                         <p class="bottom-area d-flex px-3">
                                             <a href="detail-catalog.php?id_produk=<?=$val['id_produk']?>" class="add-to-cart text-center py-2 mr-1"><span>Add to cart <i class="ion-ios-add ml-1"></i></span></a>
@@ -37,21 +37,6 @@
                         <?php
                         }
                         ?>
-                    </div>
-                    <div class="row mt-5">
-                        <div class="col text-center">
-                            <div class="block-27">
-                                <ul>
-                                    <li><a href="#">&lt;</a></li>
-                                    <li class="active"><span>1</span></li>
-                                    <li><a href="#">2</a></li>
-                                    <li><a href="#">3</a></li>
-                                    <li><a href="#">4</a></li>
-                                    <li><a href="#">5</a></li>
-                                    <li><a href="#">&gt;</a></li>
-                                </ul>
-                            </div>
-                        </div>
                     </div>
                 </div>
 

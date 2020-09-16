@@ -1,5 +1,5 @@
 <?php
 include 'template/header.php';
-include 'pages/index.php';
+include 'pages/produk/produk.php';
 include 'template/footer.php';
 ?>

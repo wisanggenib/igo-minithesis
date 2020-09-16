@@ -28,22 +28,12 @@ $val = mysqli_fetch_array($kueriproduk, MYSQLI_ASSOC);
                 <div class="row mt-4">
                     <div class="w-100"></div>
                     <div class="input-group col-md-6 d-flex mb-3">
-                        <span class="input-group-btn mr-2">
-                            <button type="button" class="quantity-left-minus btn" data-type="minus" data-field="">
-                                <i class="ion-ios-remove"></i>
-                            </button>
-                        </span>
-                        <input type="text" id="quantity" name="jumlah" class="quantity form-control input-number" value="1" min="1" max="100">
+                        <input type="number" id="quantity" name="jumlah" class="quantity form-control input-number" value="1" min="1" max="<?=$val['stok']?>">
                         <input type="id_produk" name="id_produk" value="<?=$val['id_produk']?>" style="display: none;">
-                        <span class="input-group-btn ml-2">
-                            <button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
-                                <i class="ion-ios-add"></i>
-                            </button>
-                        </span>
                     </div>
                     <div class="w-100"></div>
                     <div class="col-md-12">
-                        <p style="color: #000;">80 piece available</p>
+                        <p style="color: #000;"><?=$val['stok']?> piece available</p>
                     </div>
                 </div>
                 <input type="submit" style="color:white;background-color: black;border: none;" value="Submit Here">

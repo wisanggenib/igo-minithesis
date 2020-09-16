@@ -51,7 +51,7 @@
             		<span class="flaticon-bag"></span>
               </div>
               <div class="media-body">
-                <h3 class="heading">Free Shipping</h3>
+                <h3 class="heading">Local Shipping</h3>
                 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
               </div>
             </div>      
@@ -94,7 +94,7 @@
     	<div class="container">
     		<div class="row">
 				<?php
-				$kueriproduk= mysqli_query($host, "SELECT * from produk ORDER BY id_produk DESC");
+				$kueriproduk= mysqli_query($host, "SELECT * from produk WHERE stok > 0 ORDER BY id_produk DESC");
 				while($val=mysqli_fetch_array($kueriproduk, MYSQLI_ASSOC)){
 				?>
     			<div class="col-sm-12 col-md-6 col-lg-3 ftco-animate d-flex">

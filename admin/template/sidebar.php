@@ -1,33 +1,6 @@
 <aside class="menu-sidebar3 js-spe-sidebar">
                                 <nav class="navbar-sidebar2 navbar-sidebar3">
                                     <ul class="list-unstyled navbar__list">
-                                        <li class="active has-sub">
-                                            <a class="js-arrow" href="#">
-                                                <i class="fas fa-tachometer-alt"></i>Dashboard 4
-                                                <span class="arrow">
-                                                    <i class="fas fa-angle-down"></i>
-                                                </span>
-                                            </a>
-                                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                                <li>
-                                                    <a href="index.html">Dashboard 1</a>
-                                                </li>
-                                                <li>
-                                                    <a href="index2.html">Dashboard 2</a>
-                                                </li>
-                                                <li>
-                                                    <a href="index3.html">Dashboard 3</a>
-                                                </li>
-                                                <li>
-                                                    <a href="index4.html">Dashboard 4</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li>
-                                            <a href="slider.php">
-                                                <i class="fas fa-chart-bar"></i>Slider</a>
-                                            <!-- <span class="inbox-num">3</span> -->
-                                        </li>
                                         <li>
                                             <a href="produk.php">
                                                 <i class="fas fa-shopping-basket"></i>Produk</a>

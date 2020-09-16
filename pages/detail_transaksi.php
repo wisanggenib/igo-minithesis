@@ -115,18 +115,26 @@ $val = mysqli_fetch_array($kueritransaksi, MYSQLI_ASSOC);
                         <hr>
                         <p class="d-flex total-price">
                             <span>Total Bayar</span>
-                            <span>Rp. <?= $jumlah_bayar+$val['ongkir'] ?></span>
+                            <span>Rp. <?= $jumlah_bayar + $val['ongkir'] ?></span>
                         </p>
                     </div>
                 </div>
+                <?php
+                if ($val['status'] == 'pending' || $val['status'] == 'reupload') {
+                ?>
                 <div class="col-md-4">
                     <div class="cart-detail bg-light p-3 p-md-4">
                         <h3 class="billing-heading mb-4">Detail Payment</h3>
                         <div class="form-group">
                             <div class="col-md-12">
                                 <p>
-                                    Nama Pemilik Rekening Disini<br>
-                                    No Pemilik Rekening Disini
+                                    A/N Asrofin Widhyantomo<br>
+                                    0240603980 BNI
+                                </p>
+                                <hr>
+                                <p align="center">
+                                    <span style="font-size: 12px;">*If you want to cancel order press this button</span><br>
+                                     <a href="cancel_order.php?id_transaksi=<?=$id_transaksi?>"><button style="color:white;background-color: red; width: 250px;"> Cancel</button></a>
                                 </p>
                             </div>
                         </div>
@@ -135,9 +143,6 @@ $val = mysqli_fetch_array($kueritransaksi, MYSQLI_ASSOC);
                 <div class="col-md-4">
                     <div class="cart-detail bg-light p-3 p-md-4">
                         <form action="paid_system.php" method="POST" enctype="multipart/form-data">
-                            <?php
-                            if ($val['status'] == 'pending' || $val['status'] == 'reupload') {
-                            ?>
                                 <h3 class="billing-heading mb-4">Upload Payment</h3>
                                 <div class="form-group">
                                     <div class="col-md-12">
@@ -145,15 +150,15 @@ $val = mysqli_fetch_array($kueritransaksi, MYSQLI_ASSOC);
                                         <input type="text" name="id_transaksi" class="form-control" placeholder="" value="<?= $id_transaksi ?>" style="display: none;">
                                         <button type="submit" class="btn btn-primary py-3 px-3"> Upload
                                     </div>
-                                <?php
-                            } else {
-                                echo "";
-                            }
-                                ?>
                                 </div>
                         </form>
                     </div>
                 </div>
+                <?php
+                } else {
+                    echo "";
+                }
+                ?>
             </div>
         </div>
     </div>

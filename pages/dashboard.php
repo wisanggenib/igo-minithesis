@@ -39,11 +39,11 @@
                                 <input type="Teks" class="form-control" name="deskripsi" placeholder="" value="<?=$valData['username']?>" disabled>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary py-3 px-3" style="width: 100%;"> Edit
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </form>
                 <!-- END -->
@@ -79,7 +79,7 @@
                                 <tbody>
                                     <?php
                                     include 'lib/koneksi.php';
-                                    $kueriDashboard = mysqli_query($host, "SELECT * from transaksi JOIN pelanggan WHERE (transaksi.id_pelanggan = pelanggan.id_pelanggan) AND (transaksi.status = 'reupload' OR transaksi.status = 'pending')");
+                                    $kueriDashboard = mysqli_query($host, "SELECT * from transaksi JOIN pelanggan ON transaksi.id_pelanggan = pelanggan.id_pelanggan WHERE (transaksi.status = 'reupload' OR transaksi.status = 'pending') AND pelanggan.id_pelanggan = '$_SESSION[id]' ORDER BY transaksi.id_transaksi DESC ");
                                     while ($val = mysqli_fetch_array($kueriDashboard, MYSQLI_ASSOC)) {
                                     ?>
                                         <tr class="text-center">
@@ -147,7 +147,7 @@
                                 <tbody>
                                     <?php
                                     include 'lib/koneksi.php';
-                                    $kueriDashboard = mysqli_query($host, "SELECT * from transaksi JOIN pelanggan WHERE (transaksi.id_pelanggan = pelanggan.id_pelanggan) AND (transaksi.status = 'waiting' OR transaksi.status = 'complete') ORDER BY transaksi.status DESC ");
+                                    $kueriDashboard = mysqli_query($host, "SELECT * from transaksi JOIN pelanggan ON transaksi.id_pelanggan = pelanggan.id_pelanggan WHERE (transaksi.status = 'waiting' OR transaksi.status = 'complete') AND pelanggan.id_pelanggan = '$_SESSION[id]' ORDER BY transaksi.status DESC ");
                                     while ($val = mysqli_fetch_array($kueriDashboard, MYSQLI_ASSOC)) {
                                     ?>
                                         <tr class="text-center">
