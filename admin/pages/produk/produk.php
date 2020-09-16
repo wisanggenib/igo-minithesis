@@ -24,6 +24,7 @@
                                                         <th>Images</th>
                                                         <th>Nama</th>
                                                         <th>Harga</th>
+                                                        <th>Stok</th>
                                                         <th>Deskripsi</th>
                                                     </tr>
                                                 </thead>
@@ -41,6 +42,7 @@
                                                         </td>
                                                         <td><?=$val['gambar']?></td>
                                                         <td><?=$val['harga_produk']?></td>
+                                                        <td><?=$val['stok']?></td>
                                                         <td><?=$val['deskripsi_produk']?></td>
                                                     </tr>
                                                 <?php

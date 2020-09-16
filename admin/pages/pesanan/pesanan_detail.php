@@ -89,7 +89,7 @@
                                                 $kueriproduk = mysqli_query($host, "SELECT transaksi.tgl_kirim,transaksi.status,transaksi.tgl_pesan,pelanggan.nama_pelanggan FROM transaksi JOIN detail_transaksi ON transaksi.id_transaksi = detail_transaksi.id_transaksi JOIN pelanggan ON transaksi.id_pelanggan = pelanggan.id_pelanggan WHERE detail_transaksi.id_transaksi = '$id_transaksi'");
                                                 $val = mysqli_fetch_array($kueriproduk, MYSQLI_ASSOC);
                                                 ?>
-                                                <table>
+                                                <table class="table">
                                                     <tr>
                                                         <td>Pemesan </td>
                                                         <td> : </td>
@@ -136,7 +136,7 @@
                                                         <h4 class="text-center">Konfirmasi</h4>
                                                     </div>
                                                     <hr>
-                                                    <table>
+                                                    <table class="table">
                                                         <tr>
                                                             <td>Alamat : <?= $val2['alamat'] ?></td>
                                                         </tr>

@@ -49,21 +49,34 @@
                                                 <hr>
                                                 <table>
                                                     <tr>
-                                                        <td>Nama</td>
-                                                        <td>: </td>
-                                                        <td> <?= $val['nama_produk'] ?></td>
+                                                        <td style="padding: 10px;">Nama</td>
+                                                        <td style="padding: 10px;">: </td>
+                                                        <td style="padding: 10px;"> <?= $val['nama_produk'] ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Harga</td>
-                                                        <td> : </td>
-                                                        <td> <?= $val['harga_produk'] ?></td>
+                                                        <td style="padding: 10px;">Harga</td>
+                                                        <td style="padding: 10px;"> : </td>
+                                                        <td style="padding: 10px;"> <?= $val['harga_produk'] ?></td>
                                                     </tr>
                                                     <tr>
-                                                        <td>Deskripsi</td>
-                                                        <td> : </td>
-                                                        <td> <?= $val['deskripsi_produk'] ?></td>
+                                                        <td style="padding: 10px;">Deskripsi</td>
+                                                        <td style="padding: 10px;"> : </td>
+                                                        <td style="padding: 10px;"> <?= $val['deskripsi_produk'] ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="padding: 10px;">Stok</td>
+                                                        <td style="padding: 10px;"> : </td>
+                                                        <td style="padding: 10px;"> <?= $val['stok'] ?></td>
                                                     </tr>
                                                 </table>
+                                                <form method="post" action="pages/produk/action_update_stok.php">
+                                                <br>
+                                                <h5>Update Stok</h5>
+                                                    <td><input type="number" name="stok_produk"  min="0" class="form-control"></td>
+                                                    <br>
+                                                    <input id="cc-pament" name="idProduk" type="text" value="<?= $val['id_produk'] ?>" class="form-control" aria-required="true" aria-invalid="false" style="display: none;">
+                                                    <td colspan="2"> <button type="submit" class="btn btn-sm btn-info btn-block">Tambah Produk</button></td>
+                                                </form>
                                             </div>
                                         </div>
                                         <div class="card">
