@@ -1,6 +1,4 @@
 <?php
-
-
 $q = $_GET['q'];
 $w = $_GET['w'];
 $curl = curl_init();
