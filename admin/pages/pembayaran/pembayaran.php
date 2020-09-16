@@ -48,44 +48,31 @@
                                                         <th>Id Transaksi</th>
                                                         <th>Nama Pembeli</th>
                                                         <th>Tanggal Pembelian</th>
-                                                        <th>Produk</th>
-                                                        <th>Jumlah</th>
                                                         <th>price</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    <?php
+                                                        include "../lib/koneksi.php";
+                                                        $jumlah = 0;
+                                                        $kueripembayaran = mysqli_query($host, "SELECT * FROM transaksi WHERE status = 'complete' ");
+                                                        while ($valPem = mysqli_fetch_array($kueripembayaran, MYSQLI_ASSOC)) {
+                                                            $kueriproduk = mysqli_query($host, "SELECT detail_transaksi.harga_produk,detail_transaksi.qty from detail_transaksi JOIN produk ON detail_transaksi.id_produk = produk.id_produk WHERE id_transaksi = '$valPem[id_transaksi]'");
+                                                            while ($val = mysqli_fetch_array($kueriproduk, MYSQLI_ASSOC)) {
+                                                                $jumlah=$jumlah + ($val['harga_produk'] * $val['qty']);
+                                                            }
+                                                     ?>
                                                     <tr class="tr-shadow">
-                                                        <td>T-001</td>
-                                                        <td>Igo trapusa</td>
-                                                        <td>2018-09-27 02:12</td>
-                                                        <td class="desc">Sempak Unyu</td>
-                                                        <td>10</td>
+                                                        <td>T-00<?=$valPem['id_transaksi']?></td>
+                                                        <td><?=$valPem['nama_penerima']?></td>
+                                                        <td><?=$valPem['tgl_pesan']?></td>
                                                         <td>
-                                                            <span class="status--process">Rp. 50.000</span>
+                                                            <span class="status--process"><?=$jumlah+$valPem['ongkir']?></span>
                                                         </td>
                                                     </tr>
-                                                    <tr class="spacer"></tr>
-                                                    <tr class="tr-shadow">
-                                                        <td>T-002</td>
-                                                        <td>Difah</td>
-                                                        <td>2018-09-27 02:12</td>
-                                                        <td class="desc">Sempak Keren</td>
-                                                        <td>10</td>
-                                                        <td>
-                                                            <span class="status--process">Rp. 150.000</span>
-                                                        </td>
-                                                    </tr>
-                                                    <tr class="spacer"></tr>
-                                                    <tr class="tr-shadow">
-                                                        <td>T-003</td>
-                                                        <td>Oba Pangestu</td>
-                                                        <td>2018-09-27 02:12</td>
-                                                        <td class="desc">Sempak Sangar</td>
-                                                        <td>10</td>
-                                                        <td>
-                                                            <span class="status--process">Rp. 2.500.000</span>
-                                                        </td>
-                                                    </tr>
+                                                    <?php
+                                                        }
+                                                    ?>
                                                     <tr class="spacer"></tr>
                                                 </tbody>
                                             </table>
